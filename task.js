@@ -63,18 +63,20 @@ closeButtonEl.addEventListener('click', onCloseButton);
 function onCloseButton(event) {
     
     modalContainer.classList.remove('is-open');
+    
+
 }
 
-// const modaleContainer = document.querySelector('.lightbox__content');
-// modaleContainer.addEventListener('click', makeOriginalImgEl);
+ const modaleContainer = document.querySelector('.lightbox__content');
+ modaleContainer.insertAdjacentHTML('beforeend', makeOriginalImgEl(gallerys));
 
-// function makeOriginalImgEl(gallerys) {
-//     return gallerys
-//         .map(gallery => {
-//             return `
-//               <img class="lightbox__image" src="${gallery.original}" alt="${gallery.description}" />
-//               `
-//         })
-//          .join(' ');
-// };
-// console.log(makeOriginalImgEl(gallerys));
+function makeOriginalImgEl(gallerys) {
+    return gallerys
+        .map(gallery => {
+            return `
+              <img class="lightbox__image" src="${gallery.original}" alt="${gallery.description}" />
+              `
+        })
+         
+};
+console.log(makeOriginalImgEl(gallerys));
