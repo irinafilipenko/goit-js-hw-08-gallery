@@ -2,13 +2,15 @@ import gallerys from './gallery-items.js'
 console.log(gallerys);
 
 const imgContainer = document.querySelector('.js-gallery');
-console.log(imgContainer);
+// console.log(imgContainer);
 const ollGallery = createImgGallery(gallerys);
  imgContainer.insertAdjacentHTML('beforeend', ollGallery);
 
 function createImgGallery(gallerys) {
     return gallerys
-        .map(gallery => {
+        .map((gallery, ind) => {
+            // const indx = ind;
+            // console.log(indx)
             return `
              
         <li>
@@ -17,6 +19,7 @@ function createImgGallery(gallerys) {
             alt = '${gallery.description}'
             width = 392
             height = 240>
+            
         </li>
     
     `;
@@ -24,6 +27,7 @@ function createImgGallery(gallerys) {
         .join(' ');
     
 };
+
 // console.log(createImgGallery(gallerys));
 
 const ImageEl = document.querySelector('.gallery-image');
@@ -68,15 +72,18 @@ function onCloseButton(event) {
 }
 
  const modaleContainer = document.querySelector('.lightbox__content');
- modaleContainer.insertAdjacentHTML('beforeend', makeOriginalImgEl(gallerys));
+  modaleContainer.insertAdjacentHTML('beforeend', makeOriginalImgEl(gallerys));
 
 function makeOriginalImgEl(gallerys) {
     return gallerys
-        .map(gallery => {
+        .map((gallery, index) => {
+            console.log(index);
             return `
-              <img class="lightbox__image" src="${gallery.original}" alt="${gallery.description}" />
+              <img class="lightbox__image" src="${gallery.original}" 
+              alt="${gallery.description}"
+              />
               `
-        })
+                 })
          
 };
 console.log(makeOriginalImgEl(gallerys));
