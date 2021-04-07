@@ -40,13 +40,34 @@ function onContainerClick(event) {
     if (currentActiveImg) {
         currentActiveImg.classList.remove('is-open');
     }
+    window.addEventListener('keydown', onEscPress);
    modalContainer.classList.add('is-open');
    modalImgRef.src = event.target.dataset.source
     
 };
 const closeButtonEl = document.querySelector('.lightbox__button');
 console.log(closeButtonEl);
+const closeModalEl = document.querySelector('.lightbox__content');
+console.log(closeModalEl);
+const closeOverlayEl = document.querySelector('.lightbox__overlay');
+console.log(closeOverlayEl);
+
+closeOverlayEl.addEventListener('click', onCloseButton);
 closeButtonEl.addEventListener('click', onCloseButton);
+
+
 function onCloseButton(event) {
+    window.removeEventListener('keydown', onEscPress);
     modalContainer.classList.remove('is-open');
-}
+    
+};
+
+function onEscPress(event) {
+    console.log(event.code);
+    if (event.code === 'Escape') {
+        onCloseButton();
+    }
+};
+
+
+
