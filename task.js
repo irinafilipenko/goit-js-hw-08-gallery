@@ -22,7 +22,7 @@ function createImgGallery(gallerys) {
         })
         .join(' ');
 };
-// console.log(createImgGallery(gallerys));
+ createImgGallery(gallerys);
 
 const ImageEl = document.querySelector('.gallery-image');
 console.log(ImageEl.src);
@@ -40,11 +40,13 @@ function onContainerClick(event) {
     const currentActiveImg = document.querySelector('.lightbox .is-open')
     if (currentActiveImg) {
         currentActiveImg.classList.remove('is-open');
+        
     }
 
     window.addEventListener('keydown', onEscPress);
    modalContainer.classList.add('is-open');
-   modalImgRef.src = event.target.dataset.source
+    modalImgRef.src = event.target.dataset.source;
+    modalImgRef.alt = event.target.alt;
     
 };
 const closeButtonEl = document.querySelector('.lightbox__button');
@@ -58,9 +60,11 @@ closeOverlayEl.addEventListener('click', onCloseButton);
 closeButtonEl.addEventListener('click', onCloseButton);
 
 
-function onCloseButton(event) {
+function onCloseButton(e) {
     window.removeEventListener('keydown', onEscPress);
     modalContainer.classList.remove('is-open');
+    modalImgRef.src = '';
+    modalImgRef.alt = '';
     
 };
 
@@ -71,20 +75,37 @@ function onEscPress(event) {
     }
 };
 
+                                                    //    Карусель
+                                           
+
 const btnPrev = document.querySelector('.prev');
 const btnNext = document.querySelector('.next');
 console.log(btnPrev);
 console.log(btnNext);
 
-// function createImgOriginalGallery(gallerys) {
-//     return gallerys
-//         .map(gallery => {
-//             return gallery.src;
-        
-//         });
+btnNext.addEventListener('click', onNextImgEl);
+// btnPrev.addEventListener('click', onPrevImgEl);
 
-// }
-// console.log(createImgOriginalGallery(gallerys));
+
+
 const images = document.querySelectorAll('img[data-source]');
 console.log(images);
 
+function onNextImgEl(event) {
+    console.log('Следующая картинка');
+    for (let i = 0; i < images.length; i+=1) {
+        console.log(images[i]);
+                }
+    
+     modalImgRef.src = event.target.dataset.source;
+};
+
+
+
+// function onPrevImgEl(evn) {
+//     console.log('Предудущая картинка');
+   
+    
+// };
+
+// onPrevImgEl(images);
