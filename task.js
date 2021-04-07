@@ -27,6 +27,7 @@ function createImgGallery(gallerys) {
 const ImageEl = document.querySelector('.gallery-image');
 console.log(ImageEl.src);
 
+
 imgContainer.addEventListener('click', onContainerClick);
 const modalImgRef = document.querySelector('.lightbox__image');
 const modalContainer = document.querySelector('.lightbox');
@@ -40,6 +41,7 @@ function onContainerClick(event) {
     if (currentActiveImg) {
         currentActiveImg.classList.remove('is-open');
     }
+
     window.addEventListener('keydown', onEscPress);
    modalContainer.classList.add('is-open');
    modalImgRef.src = event.target.dataset.source
@@ -69,5 +71,20 @@ function onEscPress(event) {
     }
 };
 
+const btnPrev = document.querySelector('.prev');
+const btnNext = document.querySelector('.next');
+console.log(btnPrev);
+console.log(btnNext);
 
+// function createImgOriginalGallery(gallerys) {
+//     return gallerys
+//         .map(gallery => {
+//             return gallery.src;
+        
+//         });
+
+// }
+// console.log(createImgOriginalGallery(gallerys));
+const images = document.querySelectorAll('img[data-source]');
+console.log(images);
 
