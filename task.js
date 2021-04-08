@@ -91,35 +91,53 @@ btnNext.addEventListener('click', onNextImgEl);
 let images = document.querySelectorAll('img[data-source]');
 console.log(images);
  
- function onNextImgEl(event) {
+ function onNextImgEl() {
         
      for (let i = 0; i < images.length; i += 1) {
          let step = 0;
-         if (images[i].alt === modalImgRef.alt) {
+         
+         
+        if (images[i].alt === modalImgRef.alt) {
                            
              step = i + 1;
+            
+            if (step > images.length - 1) {
+                step = 0;
+                               
+            }
              const nextImgAlt = images[step].alt;
              const nextImgUrl = images[step].dataset.source;
             
               modalImgRef.alt = nextImgAlt;
-        return    modalImgRef.src = nextImgUrl;
+             return modalImgRef.src = nextImgUrl;
+             
+             
          };
+      
+         
+         
       };
     };
 
 
 
-function onPrevImgEl(eventn) {
+function onPrevImgEl() {
     for (let i = 0; i < images.length; i += 1) {
          let step = 0;
          if (images[i].alt === modalImgRef.alt) {
-                          step = i - 1;
+             step = i - 1;
+              if (step < 0) {
+                step = images.length-1;
+                               
+            }
+             
              const nextImgAlt = images[step].alt;
              const nextImgUrl = images[step].dataset.source;
             
               modalImgRef.alt = nextImgAlt;
         return    modalImgRef.src = nextImgUrl;
-         };
+        };
+    
       };
     };
 
