@@ -96,12 +96,17 @@ console.log(images);
     
      for (let i = 0; i < images.length; i += 1) {
          let step = 0;
-         if (images[i].alt == modalImgRef.alt) {
-             console.log(i);
-             console.log( step = i + 1);
-              modalImgRef.src[step] = event.target.dataset.source
-                 ;
+         if (images[i].alt === modalImgRef.alt) {
+             const currentImgURL = images[i].dataset.source;
+             console.log(currentImgURL);
+             
+             step = i + 1;
+             const nextImgUrl = images[step].dataset.source;
+             console.log(nextImgUrl);
+             
+           
          }
+          modalImgRef.src = event.target.dataset.source; 
      };
           
  };
