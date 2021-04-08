@@ -33,6 +33,7 @@ const modalImgRef = document.querySelector('.lightbox__image');
 const modalContainer = document.querySelector('.lightbox');
 
 function onContainerClick(event) {
+    event.preventDefault();
     const isGallaryEl = event.target.classList.contains('gallery-image');
     if (!isGallaryEl) {
         return;
