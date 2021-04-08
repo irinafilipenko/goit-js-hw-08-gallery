@@ -103,10 +103,10 @@ console.log(images);
              step = i + 1;
              const nextImgUrl = images[step].dataset.source;
              console.log(nextImgUrl);
-             
+             modalImgRef.src = nextImgUrl; 
            
          }
-          modalImgRef.src = event.target.dataset.source; 
+          
      };
           
  };
