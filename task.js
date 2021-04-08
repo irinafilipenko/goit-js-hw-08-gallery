@@ -97,13 +97,20 @@ console.log(images);
      for (let i = 0; i < images.length; i += 1) {
          let step = 0;
          if (images[i].alt === modalImgRef.alt) {
-             const currentImgURL = images[i].dataset.source;
-             console.log(currentImgURL);
+             const currentImgAlt = images[i].alt;
+             const currentImgUrl = images[i].dataset.source;
+             
+             console.log(currentImgAlt);
+             console.log(currentImgUrl);
              
              step = i + 1;
+             const nextImgAlt = images[step].alt;
              const nextImgUrl = images[step].dataset.source;
+             console.log(nextImgAlt);
              console.log(nextImgUrl);
-             modalImgRef.src = nextImgUrl; 
+              modalImgRef.alt = nextImgAlt;
+            modalImgRef.src = nextImgUrl;
+              
            
          }
           
