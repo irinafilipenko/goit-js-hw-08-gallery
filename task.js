@@ -92,15 +92,18 @@ let images = document.querySelectorAll('img[data-source]');
 console.log(images);
  
  function onNextImgEl(event) {
-   
+     console.log('Следующая картинка');
     
-   console.log('Следующая картинка');
-//     for (let i = 0; i < images.length; i += 1) {
-//         console.log(i);
-//         // console.log(images[i] += 1);
-//     }
-    
-//      modalImgRef.src = event.target.dataset.source;
+     for (let i = 0; i < images.length; i += 1) {
+         let step = 0;
+         if (images[i].alt == modalImgRef.alt) {
+             console.log(i);
+             console.log( step = i + 1);
+              modalImgRef.src[step] = event.target.dataset.source
+                 ;
+         }
+     };
+          
  };
 
 
