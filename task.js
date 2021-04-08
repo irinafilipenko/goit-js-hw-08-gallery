@@ -84,7 +84,7 @@ console.log(btnPrev);
 console.log(btnNext);
 
 btnNext.addEventListener('click', onNextImgEl);
-// btnPrev.addEventListener('click', onPrevImgEl);
+ btnPrev.addEventListener('click', onPrevImgEl);
 
 
 
@@ -92,38 +92,35 @@ let images = document.querySelectorAll('img[data-source]');
 console.log(images);
  
  function onNextImgEl(event) {
-     console.log('Следующая картинка');
-    
+        
      for (let i = 0; i < images.length; i += 1) {
          let step = 0;
          if (images[i].alt === modalImgRef.alt) {
-             const currentImgAlt = images[i].alt;
-             const currentImgUrl = images[i].dataset.source;
-             
-             console.log(currentImgAlt);
-             console.log(currentImgUrl);
-             
+                           
              step = i + 1;
              const nextImgAlt = images[step].alt;
              const nextImgUrl = images[step].dataset.source;
-             console.log(nextImgAlt);
-             console.log(nextImgUrl);
+            
               modalImgRef.alt = nextImgAlt;
-            modalImgRef.src = nextImgUrl;
-              
-           
-         }
-          
-     };
-          
- };
+        return    modalImgRef.src = nextImgUrl;
+         };
+      };
+    };
 
 
 
-// function onPrevImgEl(evn) {
-//     console.log('Предудущая картинка');
-   
-    
-// };
+function onPrevImgEl(eventn) {
+    for (let i = 0; i < images.length; i += 1) {
+         let step = 0;
+         if (images[i].alt === modalImgRef.alt) {
+                          step = i - 1;
+             const nextImgAlt = images[step].alt;
+             const nextImgUrl = images[step].dataset.source;
+            
+              modalImgRef.alt = nextImgAlt;
+        return    modalImgRef.src = nextImgUrl;
+         };
+      };
+    };
 
-// onPrevImgEl(images);
+
