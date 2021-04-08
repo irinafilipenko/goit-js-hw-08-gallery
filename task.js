@@ -68,6 +68,7 @@ closeButtonEl.addEventListener('click', onCloseButton);
 
 function onCloseButton(e) {
     window.removeEventListener('keydown', onEscPress);
+    window.removeEventListener('keydown', onArrowEl);
     modalContainer.classList.remove('is-open');
     modalImgRef.src = '';
     modalImgRef.alt = '';
@@ -89,7 +90,7 @@ const btnNext = document.querySelector('.next');
 
 btnNext.addEventListener('click', onNextImgEl);
  btnPrev.addEventListener('click', onPrevImgEl);
-
+window.addEventListener('keydown', onArrowEl);
 
 
 let images = document.querySelectorAll('img[data-source]');
@@ -136,3 +137,11 @@ function onPrevImgEl() {
     };
 
 
+function onArrowEl(event) {
+     if (event.code === 'ArrowRight') {
+                  onNextImgEl();
+    }
+    if (event.code === 'ArrowLeft') {
+                  onPrevImgEl();
+    }
+};
