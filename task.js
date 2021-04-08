@@ -88,17 +88,20 @@ btnNext.addEventListener('click', onNextImgEl);
 
 
 
-const images = document.querySelectorAll('img[data-source]');
+let images = document.querySelectorAll('img[data-source]');
 console.log(images);
-
-function onNextImgEl(event) {
-    console.log('Следующая картинка');
-    for (let i = 0; i < images.length; i+=1) {
-        console.log(images[i]);
-                }
+ 
+ function onNextImgEl(event) {
+   
     
-     modalImgRef.src = event.target.dataset.source;
-};
+   console.log('Следующая картинка');
+//     for (let i = 0; i < images.length; i += 1) {
+//         console.log(i);
+//         // console.log(images[i] += 1);
+//     }
+    
+//      modalImgRef.src = event.target.dataset.source;
+ };
 
 
 
