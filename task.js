@@ -80,8 +80,6 @@ function onEscPress(event) {
 
 const btnPrev = document.querySelector('.prev');
 const btnNext = document.querySelector('.next');
-console.log(btnPrev);
-console.log(btnNext);
 
 btnNext.addEventListener('click', onNextImgEl);
  btnPrev.addEventListener('click', onPrevImgEl);
@@ -95,27 +93,19 @@ console.log(images);
         
      for (let i = 0; i < images.length; i += 1) {
          let step = 0;
-         
-         
-        if (images[i].alt === modalImgRef.alt) {
-                           
+                  
+         if (images[i].alt === modalImgRef.alt) {
              step = i + 1;
-            
             if (step > images.length - 1) {
                 step = 0;
-                               
-            }
+                }
              const nextImgAlt = images[step].alt;
              const nextImgUrl = images[step].dataset.source;
             
-              modalImgRef.alt = nextImgAlt;
+                    modalImgRef.alt = nextImgAlt;
              return modalImgRef.src = nextImgUrl;
-             
-             
-         };
-      
-         
-         
+              };
+                       
       };
     };
 
@@ -128,15 +118,13 @@ function onPrevImgEl() {
              step = i - 1;
               if (step < 0) {
                 step = images.length-1;
-                               
-            }
-             
-             const nextImgAlt = images[step].alt;
-             const nextImgUrl = images[step].dataset.source;
+             }
+              const nextImgAlt = images[step].alt;
+              const nextImgUrl = images[step].dataset.source;
             
-              modalImgRef.alt = nextImgAlt;
+                  modalImgRef.alt = nextImgAlt;
         return    modalImgRef.src = nextImgUrl;
-        };
+          };
     
       };
     };
