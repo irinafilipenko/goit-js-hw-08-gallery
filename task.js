@@ -67,13 +67,13 @@ closeButtonEl.addEventListener('click', onCloseButton);
 
 
 function onCloseButton(e) {
-    window.removeEventListener('keydown', onEscPress);
-    
     modalContainer.classList.remove('is-open');
-    
     modalImgRef.src = '';
     modalImgRef.alt = '';
-    
+    window.removeEventListener('keydown', onEscPress);
+    if (modalContainer.classList.contains('is-open')) {
+    window.removeEventListener('keydown', onArrowEl);
+  };
 };
 
 function onEscPress(event) {
