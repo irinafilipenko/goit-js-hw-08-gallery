@@ -11,12 +11,17 @@ function createImgGallery(gallerys) {
         .map(gallery => {
             return `
         <li>
+         <a
+             class="gallery__link"
+             href= "${gallery.original}"
+             >
             <img class = "gallery-image"
             src = '${gallery.preview}'
             alt = '${gallery.description}'
             data-source="${gallery.original}"
             width = 392
             height = 240>
+            </a>
         </li>
     `;
         })
