@@ -37,6 +37,8 @@ imgContainer.addEventListener('click', onContainerClick);
 const modalImgRef = document.querySelector('.lightbox__image');
 const modalContainer = document.querySelector('.lightbox');
 
+
+
 function onContainerClick(event) {
     event.preventDefault();
     const isGallaryEl = event.target.classList.contains('gallery-image');
@@ -44,9 +46,9 @@ function onContainerClick(event) {
         return;
     }
     const currentActiveImg = document.querySelector('.lightbox .is-open')
+        
     if (currentActiveImg) {
         currentActiveImg.classList.remove('is-open');
-        
     }
 
     window.addEventListener('keydown', onEscPress);
@@ -55,6 +57,8 @@ function onContainerClick(event) {
     modalImgRef.alt = event.target.alt;
     
 };
+// setTimeout(onContainerClick,50000);
+
 const closeButtonEl = document.querySelector('.lightbox__button');
 console.log(closeButtonEl);
 const closeModalEl = document.querySelector('.lightbox__content');
@@ -127,11 +131,11 @@ function onPrevImgEl() {
               if (step < 0) {
                 step = images.length-1;
              }
-              const nextImgAlt = images[step].alt;
-              const nextImgUrl = images[step].dataset.source;
+              const prevImgAlt = images[step].alt;
+              const prevImgUrl = images[step].dataset.source;
             
-                  modalImgRef.alt = nextImgAlt;
-        return    modalImgRef.src = nextImgUrl;
+                  modalImgRef.alt = prevImgAlt;
+        return    modalImgRef.src = prevImgUrl;
           };
     
       };
@@ -146,3 +150,5 @@ function onArrowEl(event) {
                   onPrevImgEl();
     }
 };
+
+
